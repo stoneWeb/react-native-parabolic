@@ -15,7 +15,7 @@ $ npm i react-native-parabolic --save
 
 ## Add it to your project
 
-```
+```javascript
 import Parabolic from 'react-native-parabolic'
 import React, { Component } from 'react';
 import {
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   }
 });
 ```
-#### Basic
+#### Properties
 
 | Prop           | Default  |   Type   | Description                   |
 | :------------- | :------: | :------: | :---------------------------- |

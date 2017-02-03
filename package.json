@@ -41,8 +41,8 @@
     "type": "git",
     "url": "git+https://github.com/stoneWeb/react-native-parabolic.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Lei <dinglei197@gmail.com> (https://github.com/stoneWeb)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/stoneWeb/react-native-parabolic/issues"
   },
