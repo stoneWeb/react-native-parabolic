@@ -8,12 +8,8 @@
  import React, { Component, PropTypes } from 'react'
  import {
    View,
-   Animated,
-   Dimensions,
-   Platform,
+   Animated
  } from 'react-native'
-
- const { width, height } = Dimensions.get('window')
 
  export default class extends Component {
 
