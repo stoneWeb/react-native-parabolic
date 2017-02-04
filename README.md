@@ -29,21 +29,14 @@ import {
 export default class par extends Component {
   constructor(props){
     super(props)
-    this.state = {}
   }
   componentDidMount(){
     setTimeout(()=>{
-      this.setState({
-        startX: 20,
-        startY: 20,
-        endX: 200,
-        endY: 300
-      })
-      this.refs["parabolic"].run()
+      this.refs["parabolic"].run([20,20,200,300]) // startX startY endX endY
     }, 200)
   }
   animateEnd(){
-    AlertIOS.alert("title", "动画完毕")
+    AlertIOS.alert("title", "animate end")
   }
   render() {
     return (
@@ -51,10 +44,6 @@ export default class par extends Component {
         <Parabolic
           ref={"parabolic"}
           style={{position: "absolute", left: 30, top: 30}}
-          startX={this.state.startX}
-          startY={this.state.startY}
-          endX={this.state.endX}
-          endY={this.state.endY}
           renderChildren={() => {
             return (
               <View style={{backgroundColor:"#f00", width: 16, height: 16, borderRadius: 8}}></View>
@@ -82,10 +71,6 @@ const styles = StyleSheet.create({
 
 | Prop           | Default  |   Type   | Description                   |
 | :------------- | :------: | :------: | :---------------------------- |
-| startX         |    0     | `number` | start x position.             |
-| startY         |    0     | `number` | start y position.             |
-| endX           |    0     | `number` | end x position.               |
-| endY           |    0     | `number` | end y position.               |
 | renderChildren | function |  `func`  | render children layout        |
 | animateEnd     | function |  `func`  | animate end callback function |
 | curvature      |  0.003   | `number` | Parabolic curvature           |

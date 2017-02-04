@@ -14,10 +14,6 @@
  export default class extends Component {
 
    static propTypes = {
-     startX: PropTypes.number.isRequired,
-     startY: PropTypes.number.isRequired,
-     endX: PropTypes.number.isRequired,
-     endY: PropTypes.number.isRequired,
      renderChildren: PropTypes.func,
      animateEnd: PropTypes.func,
      curvature: PropTypes.number,
@@ -28,10 +24,6 @@
    static defaultProps = {
      curvature: .003,
      duration: 350,
-     startX: 0,
-     startY: 0,
-     endX: 0,
-     endY: 0,
      animateEnd: function(){},
      renderChildren: function(){}
    }
@@ -43,9 +35,12 @@
        runAnim: new Animated.Value(0),
      }
    }
-   run(data = {}){
+   run(position = [], data = {}){
+     if(position.length != 4){
+       return
+     }
      this.state.runAnim.setValue(0)
-     const { inputRange, outputX, outputY } = this.getPaths()
+     const { inputRange, outputX, outputY } = this.getPaths(position)
      this.setState({
        animateBtnX: this.state.runAnim.interpolate({
          inputRange, outputRange: outputX
@@ -59,8 +54,9 @@
          duration: 350
      }).start(() => { this.props.animateEnd(data) })
    }
-   getPaths(){
-     const { curvature, startX, startY, endX, endY } = this.props, speed = 500//166.67
+   getPaths(position){
+     const [ startX, startY, endX, endY ] = position
+     const { curvature } = this.props, speed = 500//166.67
      let diffX = endX - startX,
          diffY = endY - startY;
      let b = ( diffY - curvature * diffX * diffX ) / diffX,
