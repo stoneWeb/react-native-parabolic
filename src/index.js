@@ -51,7 +51,7 @@
      })
      Animated.timing(this.state.runAnim, {
          toValue: inputRange.length,
-         duration: 350
+         duration: this.props.duration,
      }).start(() => { this.props.animateEnd(data) })
    }
    getPaths(position){
