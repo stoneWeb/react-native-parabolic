@@ -5,6 +5,6 @@
  */
 'use strict';
 
-import Parabolic from './src'
+import Parabolic from './src';
 
-export default Parabolic
+export default Parabolic;
